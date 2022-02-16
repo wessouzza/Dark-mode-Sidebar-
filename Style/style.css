@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap');
+
+:root {
+    --primary-color: #95fd0d;
+    --sidebar-body:  #fff;
+    --body-color:    #f1f3f8;
+    --primary-light: #fffe;
+    --toggle-color:  #ddd;
+    --text-color:    #707070;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    height: 100vh;
+    background-color: var(--body-color);
+    transition: .3s ease;
+}
+
+/* ////// BODY DARK-MODE \\\\\*/
+body.dark {
+    --primary-color: #3a3b3c;
+    --sidebar-body:  #242526;
+    --body-color:    #18191a;
+    --primary-light: #fffe;
+    --toggle-color:  #ddd;
+    --text-color:    #ccc;
+}
+
+
+.sidebar {
+    position: fixed;
+    top: 5px;
+    left: 5px;
+    height: 90%;
+    bottom: 55px;
+    width: 210px;
+    padding: 10px 14px;
+    background-color: var(--sidebar-body);
+    border-radius: 5px;
+    box-shadow: .5px 5px 9px rgba(0, 0, 0,.1);
+    transition: .5s ease;
+}
+
+
+.sidebar.close {
+    width: 60px;
+}
+
+.sidebar.close .text {
+    opacity: 0;
+}
+
+
+.sidebar li {
+    height: 50px;
+    margin-top: 10px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar li .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 60px;
+    font-size: 20px;
+}
+
+.sidebar li .icon,
+.sidebar li .text {
+    color: var(--text-color);
+}
+
+.sidebar li a {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: .4s ease;
+}
+
+.sidebar li a:hover {
+    background-color: var(--primary-color);
+}
+
+.sidebar.close li a:hover {
+    background-color: var(--primary-color);
+    animation: gooey .2s ease;
+}
+
+@keyframes gooey{
+    0%{
+        transform: scale(1, 1);
+    }
+    50%{
+        transform: scale(0.5, 1.7);
+    }
+    100%{
+        transform: scale(1.1);    
+    }
+}
+
+.sidebar li a:hover .icon,
+.sidebar li a:hover .text {
+    color: #fff;
+}
+
+.sidebar header {
+    position: relative;
+}
+
+.sidebar .image-text img {
+    width: 5rem;
+    transition: .5s ease;
+}
+
+.sidebar.close .image-text img {
+    width: 3rem;
+}
+
+
+
+.sidebar header .toggle {
+    position: absolute;
+    top: 50%;
+    right: -25px;
+    transform: translateY(-50%) rotate(180deg);
+    height: 25px;
+    width: 25px;
+    background-color: var(--primary-color);
+    color: #fff;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.sidebar.close header .toggle {
+    transform: translateY(-50%);
+}
+
+.menu-bar .mode {
+    position:  relative;
+}
+
+.menu-bar .mode .moon-sun {
+    display: flex;
+    height: 50px;
+    width: 60px;
+    align-items: center;
+}
+
+.menu-bar .mode i {
+    position: absolute;
+}
+
+.menu-bar .mode i.sun {
+    opacity: 0;
+}
+
+body.dark .menu-bar .mode .sun {
+    opacity: 1;
+}
+
+body.dark .menu-bar .mode .moon {
+    opacity: 0;
+}
+
+.menu-bar .mode .toggle-switch {
+    position: absolute;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 40px;
+    cursor: pointer;
+}
+
+.toggle-switch .switch {
+    position: relative;
+    height: 22px;
+    width: 44px;
+    background-color: var(--toggle-color);
+    border-radius: 25px;
+}
+
+.switch::before {
+    content: '';
+    position: absolute;
+    height: 17px;
+    width: 17px;
+    top: 50%;
+    left: 3px;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    background-color: #fff;
+    transition: .3s ease;
+}
+
+body.dark .switch::before{
+    left: 21px;
+}
